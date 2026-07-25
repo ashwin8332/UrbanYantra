@@ -1,0 +1,23 @@
+name: Upload pipeline outputs to Hugging Face
+
+on:
+  workflow_dispatch:
+
+jobs:
+  upload-outputs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install huggingface_hub pyyaml
+
+      - name: Upload outputs to HF Dataset
+        run: python scripts/upload_outputs_to_hf.py
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_OUTPUTS_REPO: ${{ vars.HF_OUTPUTS_REPO }}

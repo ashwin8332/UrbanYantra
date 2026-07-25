@@ -1,0 +1,75 @@
+# Pilot city: Pune, India (ISRO hackathon default)
+# Bounding box: [min_lon, min_lat, max_lon, max_lat] WGS84
+city_name: Pune
+country: India
+bbox: [73.80, 18.48, 73.92, 18.58]
+crs: EPSG:4326
+target_resolution_m: 10
+
+# Study period — Landsat 8 LST composite window
+date_range:
+  start: "2020-01-01"
+  end: "2024-12-31"
+  composite_method: median  # median reduces clouds
+
+# Landsat 8 Collection 2 Level-2
+landsat:
+  collection: LANDSAT/LC08/C02/T1_L2
+  lst_band: ST_B10
+  scale_factor: 0.00341802
+  offset: 149.0
+  cloud_cover_max: 30
+
+# Sentinel-2 for 10 m downscaling indices
+sentinel2:
+  collection: COPERNICUS/S2_SR_HARMONIZED
+  cloud_probability_max: 40
+
+# Land cover
+worldcover:
+  collection: ESA/WorldCover/v200
+  year: 2021
+
+# Meteorology (ERA5-Land via GEE)
+era5_land:
+  collection: ECMWF/ERA5_LAND/HOURLY
+  variables:
+    - temperature_2m
+    - dewpoint_temperature_2m
+    - u_component_of_wind_10m
+    - v_component_of_wind_10m
+    - surface_solar_radiation_downwards
+
+# GHSL
+ghsl:
+  building_height: JRC/GHSL/P2016/BUILD_HEIGHT
+  population: JRC/GHSL/P2016/POP
+
+# Hotspot thresholds (°C above city median LST)
+hotspot:
+  moderate_delta_c: 2.0
+  severe_delta_c: 4.0
+
+# Spatial CV tiles (degrees) for holdout validation
+spatial_cv:
+  tile_size_deg: 0.04
+  holdout_fraction: 0.2
+
+# Intervention scenarios (InVEST UCM-inspired parameters)
+scenarios:
+  urban_greening:
+    canopy_increase_pct: 25
+    shade_factor: 0.15
+  cool_roof:
+    albedo_increase: 0.25
+    roof_fraction: 0.35
+  blue_infrastructure:
+    water_fraction_increase: 0.05
+    evap_cooling_c: 1.5
+
+# Data source mode: gee | synthetic
+# GEE: Landsat 8 ST_B10 LST + Sentinel-2 indices (requires earthengine authenticate)
+data_mode: gee
+gee_project: western-avatar-491910-s2
+
+output_dir: outputs/pune

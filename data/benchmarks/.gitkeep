@@ -1,0 +1,2 @@
+# Small benchmark CSVs — safe to commit (~112 KB each). Used by pipeline on Render/Vercel deploy.
+# Large rasters stay on Google Drive → configs/remote_datasets.yaml

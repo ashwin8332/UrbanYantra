@@ -1,0 +1,27 @@
+# UrbanYantra — split deployment (free tier)
+# Frontend: Vercel (Next.js)  |  Backend: Render (FastAPI + rasterio + xgboost)
+
+services:
+  - type: web
+    name: urbanyantra-api
+    runtime: python
+    plan: free
+    region: singapore
+    buildCommand: pip install -r requirements-deploy.txt && python -c "from backend.app.main import app; print('import ok')"
+    startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.0"
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: URBANYANTRA_DATA_CACHE
+        value: /opt/render/project/src/data/cache
+      - key: NEXT_PUBLIC_API_BASE
+        sync: false
+      - key: CORS_ALLOW_ORIGINS
+        sync: false
+      - key: GEE_PROJECT
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false

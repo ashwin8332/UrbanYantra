@@ -1,0 +1,13 @@
+# Cloud deployment — Hugging Face outputs + HF Space API + Vercel frontend
+# Override any value with environment variables (see scripts/upload_outputs_to_hf.py).
+
+huggingface:
+  # Public dataset repo for precomputed pipeline outputs (create at huggingface.co/new-dataset)
+  outputs_repo_id: "sleepingbeauty11/UrbanYantra-outputs"
+  outputs_revision: "main"
+  # Docker Space name (create at huggingface.co/new-space, SDK = Docker)
+  space_id: "sleepingbeauty11/urbanyantra-api"
+
+vercel:
+  # Set NEXT_PUBLIC_API_BASE in Vercel dashboard after HF Space is live:
+  # https://sleepingbeauty11-urbanyantra-api.hf.space

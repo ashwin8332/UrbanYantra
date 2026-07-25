@@ -1,0 +1,22 @@
+# Local real-data paths — copy downloaded files here and update paths.
+# Used when data_mode: local (or when local_data.use_for_* flags are true under gee mode).
+
+local_data:
+  # D-03 ERA5 / ECMWF UTCI NetCDF (Copernicus CDS download — ECMWF_utci_YYYYMMDD_v1.1_con.nc)
+  era5_utci_dir: "C:/Users/riya1/Downloads/e41937b485eabac6f3a37b403badfcf1"
+
+  # D-04 GHSL — download Built-S and SMOD GeoTIFF tiles covering your city from Google Drive
+  # Built-H 2018 is acceptable (±2–6 yr lag vs 2024 LST is standard in UHI literature)
+  ghsl_built_s: ""   # e.g. C:/Users/riya1/Downloads/GHSL/Built-S/GHS_BUILT_S_E2020_GLOBE_R2023A_54009_V1_0.tif
+  ghsl_smod: ""      # e.g. C:/Users/riya1/Downloads/GHSL/SMOD/GHS_SMOD_E2020_GLOBE_R2023A_54009_V1_0.tif
+  ghsl_built_h: ""   # optional 2018 height — used if present
+  ghsl_population: "" # optional GHS-POP tile
+
+  # D-07 Kaggle UHI Monitoring (Atharva Soundankar) — CSV path after download
+  kaggle_uhi_csv: ""  # e.g. C:/Users/riya1/Downloads/uhi_monitoring.csv
+
+  # D-09 EY Open Science Challenge 2025 — NYC labeled training (external validation / transfer learning)
+  ey_uhi_training_csv: "C:/Users/riya1/Downloads/Training_data_uhi_index_2025-02-18.csv"
+
+  # Prefer local files over GEE when both exist
+  prefer_local_over_gee: true

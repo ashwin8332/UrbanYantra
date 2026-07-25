@@ -1,0 +1,4 @@
+# Force Unix line endings for shell scripts (prevents HF Space "no such file or directory")
+entrypoint.sh text eol=lf
+*.sh text eol=lf
+Dockerfile text eol=lf

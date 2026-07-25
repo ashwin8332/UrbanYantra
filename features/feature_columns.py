@@ -1,0 +1,26 @@
+"""Model feature column names — kept separate so the API does not import the full pipeline."""
+
+FEATURE_COLUMNS = [
+    "ndvi",
+    "ndbi",
+    "ndwi",
+    "utfvi",
+    "building_density",
+    "road_density",
+    "dist_green_m",
+    "dist_water_m",
+    "impervious_frac",
+    "vegetation_frac",
+    "building_height",
+    "population",
+    "temp_2m_c",
+    "dewpoint_c",
+    "humidity_proxy",
+    "wind_ms",
+    "solar_radiation_wm2",
+    "hour",
+    "month",
+    "season",
+    "heatwave_flag",
+    "lcz_class",
+]

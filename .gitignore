@@ -1,0 +1,111 @@
+# ==========================
+# Python
+# ==========================
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+# Virtual environments (including accidental root-level venv folders)
+.venv/
+venv/
+env/
+ENV/
+Lib/
+Scripts/
+Include/
+share/
+pyvenv.cfg
+/Lib/
+/Scripts/
+/Include/
+/share/
+/pyvenv.cfg
+# ==========================
+# Jupyter
+# ==========================
+.ipynb_checkpoints/
+
+# ==========================
+# VS Code
+# ==========================
+.vscode/
+
+# ==========================
+# Pytest
+# ==========================
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ==========================
+# Build
+# ==========================
+build/
+dist/
+*.egg-info/
+
+# ==========================
+# Environment variables
+# ==========================
+.env
+
+# ==========================
+# OS files
+# ==========================
+.DS_Store
+Thumbs.db
+
+# ==========================
+# Project outputs
+# ==========================
+outputs/*
+!outputs/__init__.py
+!outputs/export_maps.py
+
+# API deploy bundle per city (Vercel frontend + Render backend, free tier)
+!outputs/*/
+outputs/*/*
+!outputs/*/maps/
+!outputs/*/maps/thermal_satellite.png
+!outputs/*/maps/thermal_satellite_meta.json
+!outputs/*/tables/feature_table.parquet
+!outputs/*/tables/era5_land_hourly.parquet
+!outputs/*/tables/osm_morphology.parquet
+!outputs/*/tables/intervention_rankings.csv
+!outputs/*/summary.json
+!outputs/*/models/**
+!outputs/*/models/benchmark_metrics.json
+!outputs/*/simulation/**
+!outputs/*/calibration/**
+!outputs/*/explainability/**
+!outputs/*/geojson/**
+!outputs/*/ranking/**
+!outputs/*/benchmarks/**
+!outputs/*/rasters/lst_10m.tif
+!outputs/*/rasters/ndvi.tif
+!outputs/*/rasters/ghsl_built_surface.tif
+!outputs/*/rasters/ghsl_smod.tif
+!outputs/*/rasters/ghsl_building_height.tif
+!outputs/*/rasters/ghsl_population.tif
+
+# Global binary ignores — exceptions below for deploy bundle only
+*.tif
+!outputs/*/rasters/lst_10m.tif
+!outputs/*/rasters/ndvi.tif
+!outputs/*/rasters/ghsl_built_surface.tif
+!outputs/*/rasters/ghsl_smod.tif
+!outputs/*/rasters/ghsl_building_height.tif
+!outputs/*/rasters/ghsl_population.tif
+!outputs/*/maps/thermal_satellite.png
+!outputs/*/maps/thermal_satellite_meta.json
+
+*.joblib
+!outputs/*/models/*.joblib
+!outputs/*/simulation/surrogate_delta_t.joblib
+
+*.geojson
+!outputs/*/geojson/**
+
+cache/
+data/cache/
+

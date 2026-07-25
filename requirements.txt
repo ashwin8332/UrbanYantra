@@ -1,0 +1,48 @@
+# Core geospatial
+earthengine-api>=0.1.400
+geopandas>=0.14.0
+rasterio>=1.3.9
+rioxarray>=0.15.0
+xarray>=2023.12.0
+pyproj>=3.6.0
+shapely>=2.0.0
+fiona>=1.9.5
+
+# OSM morphology
+osmnx>=1.9.0
+
+# ML + explainability
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+scipy>=1.11.0
+xgboost>=2.0.0
+shap>=0.44.0
+
+# Visualization + dashboard
+matplotlib>=3.8.0
+seaborn>=0.13.0
+plotly>=5.18.0
+streamlit>=1.29.0
+folium>=0.15.0
+streamlit-folium>=0.18.0
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+
+# PDF generation
+reportlab>=4.0.0
+
+# Config + utilities
+pyyaml>=6.0.1
+tqdm>=4.66.0
+joblib>=1.3.0
+requests>=2.31.0
+
+# Notebooks
+jupyter>=1.0.0
+ipykernel>=6.27.0
+
+# Optional physics / advanced (modular)
+# torch>=2.1.0  # uncomment for PINN branch
+netcdf4>=1.6.0
+huggingface_hub>=0.23.0

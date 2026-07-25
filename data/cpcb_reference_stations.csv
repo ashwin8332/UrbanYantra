@@ -1,0 +1,21 @@
+city_key,station_name,agency,lon,lat,source_url
+Mumbai,Bandra,CPCB,72.8347,19.0544,https://cpcb.nic.in
+Mumbai,Colaba,CPCB,72.8177,18.9067,https://cpcb.nic.in
+Pune,Karve Road,CPCB,73.8077,18.5018,https://cpcb.nic.in
+Pune,Bhosari,CPCB,73.8480,18.6400,https://cpcb.nic.in
+Delhi_NCR,Anand Vihar,CPCB,77.3163,28.6469,https://cpcb.nic.in
+Delhi_NCR,RK Puram,CPCB,77.1726,28.5649,https://cpcb.nic.in
+Bengaluru,City Railway Station,CPCB,77.5667,12.9767,https://cpcb.nic.in
+Bengaluru,Peenya,CPCB,77.5250,13.0350,https://cpcb.nic.in
+Mangaluru,Kodialbail,CPCB,74.8431,12.8698,https://cpcb.nic.in
+Mangaluru,Surathkal,CPCB,74.7930,12.9910,https://cpcb.nic.in
+Hyderabad,Zoo Park,CPCB,78.4480,17.3530,https://cpcb.nic.in
+Hyderabad,Sanathnagar,CPCB,78.4300,17.4500,https://cpcb.nic.in
+Visakhapatnam,Gajuwaka,CPCB,83.1600,17.4400,https://cpcb.nic.in
+Visakhapatnam,MVP Colony,CPCB,83.3200,17.7200,https://cpcb.nic.in
+Chennai,Anna Nagar,CPCB,80.2100,13.0850,https://cpcb.nic.in
+Chennai,Alandur,CPCB,80.2060,12.9950,https://cpcb.nic.in
+Kolkata,Victoria,CPCB,88.3403,22.5448,https://cpcb.nic.in
+Kolkata,Ballygunge,CPCB,88.3650,22.5330,https://cpcb.nic.in
+Ahmedabad,Maninagar,CPCB,72.6012,22.9989,https://cpcb.nic.in
+Ahmedabad,Satellite,CPCB,72.5286,23.0225,https://cpcb.nic.in

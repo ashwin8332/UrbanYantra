@@ -1,0 +1,170 @@
+# Multi-city India pilot — aligned with hackathon deep-build spec (Section 2)
+# bbox: [min_lon, min_lat, max_lon, max_lat] WGS84
+# station coords: CPCB/IMD reference for offline calibration (Phase 4)
+
+defaults:
+  country: India
+  crs: EPSG:4326
+  target_resolution_m: 10
+  data_mode: gee
+  gee_project: western-avatar-491910-s2
+  date_range:
+    start: "2020-01-01"
+    end: "2024-12-31"
+    composite_method: median
+    lst_months: [3, 4, 5, 6]  # Mar–Jun clear-sky summer LST for India UHI
+  landsat:
+    collection: LANDSAT/LC08/C02/T1_L2
+    lst_band: ST_B10
+    scale_factor: 0.00341802
+    offset: 149.0
+    cloud_cover_max: 20
+  sentinel2:
+    collection: COPERNICUS/S2_SR_HARMONIZED
+    cloud_probability_max: 40
+  worldcover:
+    collection: ESA/WorldCover/v200
+    year: 2021
+  era5_land:
+    collection: ECMWF/ERA5_LAND/HOURLY
+    variables:
+      - temperature_2m
+      - dewpoint_temperature_2m
+      - u_component_of_wind_10m
+      - v_component_of_wind_10m
+      - surface_solar_radiation_downwards
+  ghsl:
+    building_height: JRC/GHSL/P2016/BUILD_HEIGHT
+    population: JRC/GHSL/P2016/POP
+  hotspot:
+    moderate_delta_c: 2.0
+    severe_delta_c: 4.0
+    gi_star_p_threshold: 0.05
+    gi_star_kernel: 5
+  spatial_cv:
+    tile_size_deg: 0.04
+    holdout_fraction: 0.2
+  scenarios:
+    urban_greening:
+      canopy_increase_pct: 25
+      shade_factor: 0.15
+    cool_roof:
+      albedo_increase: 0.25
+      roof_fraction: 0.35
+    blue_infrastructure:
+      water_fraction_increase: 0.05
+      evap_cooling_c: 1.5
+  intervention_costs_inr_per_sqm:
+    urban_greening: 1200
+    cool_roof: 450
+    blue_infrastructure: 3500
+
+cities:
+  # ── Maharashtra ──────────────────────────────────────────────────────────
+  Mumbai:
+    city_name: Mumbai
+    state: Maharashtra
+    bbox: [72.78, 18.90, 72.96, 19.25]
+    timezone: Asia/Kolkata
+    stations:
+      - {name: Bandra, lon: 72.8347, lat: 19.0544}
+      - {name: Colaba, lon: 72.8177, lat: 18.9067}
+    output_dir: outputs/mumbai
+
+  Pune:
+    city_name: Pune
+    state: Maharashtra
+    bbox: [73.78, 18.46, 73.94, 18.57]
+    timezone: Asia/Kolkata
+    stations:
+      - {name: Karve Road, lon: 73.8077, lat: 18.5018}
+      - {name: Bhosari, lon: 73.8480, lat: 18.6400}
+    output_dir: outputs/pune
+
+  # ── Delhi ────────────────────────────────────────────────────────────────
+  Delhi_NCR:
+    city_name: Delhi NCR
+    state: Delhi
+    bbox: [76.84, 28.40, 77.35, 28.88]
+    timezone: Asia/Kolkata
+    stations:
+      - {name: Anand Vihar, lon: 77.3163, lat: 28.6469}
+      - {name: RK Puram, lon: 77.1726, lat: 28.5649}
+    output_dir: outputs/delhi_ncr
+
+  # ── Karnataka ────────────────────────────────────────────────────────────
+  Bengaluru:
+    city_name: Bengaluru
+    state: Karnataka
+    # Urban core — excludes east rural grid sprawl (matches Mumbai-style tight extent)
+    bbox: [77.53, 12.82, 77.77, 13.12]
+    timezone: Asia/Kolkata
+    stations:
+      - {name: City Railway Station, lon: 77.5667, lat: 12.9767}
+      - {name: Peenya, lon: 77.5250, lat: 13.0350}
+    output_dir: outputs/bengaluru
+
+  Mangaluru:
+    city_name: Mangaluru
+    state: Karnataka
+    bbox: [74.80, 12.83, 74.92, 12.97]
+    timezone: Asia/Kolkata
+    stations:
+      - {name: Kodialbail, lon: 74.8431, lat: 12.8698}
+      - {name: Surathkal, lon: 74.7930, lat: 12.9910}
+    output_dir: outputs/mangaluru
+
+  # ── Telangana ────────────────────────────────────────────────────────────
+  Hyderabad:
+    city_name: Hyderabad
+    state: Telangana
+    bbox: [78.35, 17.30, 78.58, 17.55]
+    timezone: Asia/Kolkata
+    stations:
+      - {name: Zoo Park, lon: 78.4480, lat: 17.3530}
+      - {name: Sanathnagar, lon: 78.4300, lat: 17.4500}
+    output_dir: outputs/hyderabad
+
+  # ── Andhra Pradesh ───────────────────────────────────────────────────────
+  Visakhapatnam:
+    city_name: Visakhapatnam
+    state: Andhra Pradesh
+    bbox: [83.22, 17.65, 83.35, 17.78]
+    timezone: Asia/Kolkata
+    stations:
+      - {name: Gajuwaka, lon: 83.1600, lat: 17.4400}
+      - {name: MVP Colony, lon: 83.3200, lat: 17.7200}
+    output_dir: outputs/visakhapatnam
+
+  # ── Tamil Nadu ───────────────────────────────────────────────────────────
+  Chennai:
+    city_name: Chennai
+    state: Tamil Nadu
+    bbox: [80.15, 12.95, 80.30, 13.15]
+    timezone: Asia/Kolkata
+    stations:
+      - {name: Anna Nagar, lon: 80.2100, lat: 13.0850}
+      - {name: Alandur, lon: 80.2060, lat: 12.9950}
+    output_dir: outputs/chennai
+
+  # ── West Bengal ──────────────────────────────────────────────────────────
+  Kolkata:
+    city_name: Kolkata
+    state: West Bengal
+    bbox: [88.30, 22.50, 88.45, 22.65]
+    timezone: Asia/Kolkata
+    stations:
+      - {name: Victoria, lon: 88.3403, lat: 22.5448}
+      - {name: Ballygunge, lon: 88.3650, lat: 22.5330}
+    output_dir: outputs/kolkata
+
+  # ── Gujarat (existing pilot) ─────────────────────────────────────────────
+  Ahmedabad:
+    city_name: Ahmedabad
+    state: Gujarat
+    bbox: [72.48, 22.96, 72.68, 23.12]
+    timezone: Asia/Kolkata
+    stations:
+      - {name: Maninagar, lon: 72.6012, lat: 22.9989}
+      - {name: Satellite, lon: 72.5286, lat: 23.0225}
+    output_dir: outputs/ahmedabad

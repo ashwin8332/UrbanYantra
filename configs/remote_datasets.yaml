@@ -1,0 +1,38 @@
+# Cloud-friendly dataset sources — works on Render, CI, teammates' machines.
+#
+# data_mode: local  →  GHSL + ERA5 from Hugging Face cache; Landsat/S2/WorldCover from GEE
+# data_mode: gee    →  All satellite from GEE; GHSL/ERA5 from Hugging Face if urban_dataset_folder set
+## ── HUGGING FACE (Urban Dataset) ───────────────────────────────────────────
+# Repo: https://huggingface.co/datasets/sleepingbeauty11/UrbanDatasets
+# Contains: era5/ (UTCI zip), ghsl/ (Built-S + SMOD India tiles), uhi_dataset/, nyc_ground_truth/
+# Pipeline auto-downloads once → data/cache/urban_dataset/
+# GHSL: picks the zip/tile whose bounds overlap your city bbox (Mumbai, Pune, …)
+
+remote_data:
+  cache_dir: data/cache
+
+  # Master dataset repo — sync entire Urban Dataset tree (recommended)
+  urban_dataset_folder:
+    huggingface_repo_id: "sleepingbeauty11/UrbanDatasets"
+    huggingface_revision: "main"
+
+  # D-07 Kaggle UHI — bundled in data/benchmarks/ (no download needed)
+  kaggle_uhi_csv:
+    filename: urban_heat_island_dataset.csv
+
+  # D-09 EY Challenge NYC labels — bundled in data/benchmarks/
+  ey_uhi_training_csv:
+    filename: Training_data_uhi_index_2025-02-18.csv
+
+  # D-03 ERA5 UTCI — extracted from urban_dataset_folder after sync (ECMWF_utci_*.nc)
+  era5_utci_dir:
+    dirname: era5_utci
+    # After HF sync, .nc files are found under data/cache/urban_dataset/era5/
+
+  # D-04 GHSL — resolved automatically from urban_dataset_folder (7 zips per layer)
+  ghsl_built_s:
+    layer: BUILT_S
+  ghsl_smod:
+    layer: SMOD
+  ghsl_built_h:
+    layer: BUILT_H

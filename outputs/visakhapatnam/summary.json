@@ -1,0 +1,32 @@
+{
+  "city_key": "Visakhapatnam",
+  "city_name": "Visakhapatnam",
+  "data_mode": "local",
+  "is_real_data": true,
+  "data_sources": {
+    "landsat_lst": "Google Earth Engine \u2014 Landsat 8 Collection 2 L2 ST_B10",
+    "sentinel2": "Google Earth Engine \u2014 Sentinel-2 SR harmonized (NDVI/NDBI/NDWI/UTFVI)",
+    "worldcover": "Google Earth Engine \u2014 ESA WorldCover v200",
+    "ghsl": "Google Drive/cache \u2014 GHSL Built-S + SMOD tiles",
+    "era5_meteo": "Google Drive/cache \u2014 ERA5 UTCI NetCDF",
+    "osm_morphology": "OpenStreetMap buildings/roads (or WorldCover impervious fallback)",
+    "station_calibration": "CPCB/IMD station coords + Open-Meteo/GEE air temperature",
+    "ward_boundaries": "OpenStreetMap admin polygons + Voronoi seeds"
+  },
+  "artifacts_present": {
+    "landsat_lst": false,
+    "sentinel2_ndvi": true,
+    "worldcover": false,
+    "ghsl": true,
+    "era5_meteo": true,
+    "osm_morphology": false,
+    "osm_buildings": false,
+    "station_calibration": true,
+    "ward_boundaries": true,
+    "feature_table": true,
+    "lst_10m": true
+  },
+  "num_features": 38,
+  "num_samples": 13680,
+  "output_dir": "outputs\\visakhapatnam"
+}
