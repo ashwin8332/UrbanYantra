@@ -1,4 +1,4 @@
-# Optimizing Urban Heat Mitigation via AI/ML (UrbanYantra)
+# UrbanYantra
 
 End-to-end ISRO hackathon prototype: **hotspot detection**, **SHAP driver attribution**, **GHSL/ERA5 real-data layers**, **live XGBoost inference**, and **cooling scenario simulation** with ranked interventions.
 
